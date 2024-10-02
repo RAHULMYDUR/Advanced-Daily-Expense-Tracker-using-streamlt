@@ -128,7 +128,7 @@ api_key = "YOUR_GOOGLE_GEMINI_API_KEY"
 ![2](https://github.com/user-attachments/assets/5c79ce1c-175c-4608-87ed-dc1b8f1650cd)
 
 ### Expense Visualization
-
+![](https://github.com/RAHULMYDUR/Advanced-Daily-Expense-Tracker-using-streamlt/blob/cca24ce050806b16172d75bd09e6a941a9d52da8/3.png)
 ### Chat interface
 
 ![1](https://github.com/user-attachments/assets/1013b88a-8b30-40a0-9455-968b3d050721)
