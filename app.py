@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Set up API key securely using streamlit secrets
-api_key = "Paste_your_gemini_API_key"
+api_key = "AIzaSyCzdCOyd-7os-SRgbEolxtwEEgYYkjKpsM"
 
 # Handling file paths properly for Streamlit Cloud
 EXPENSE_FILE = "daily_expenses.csv"
@@ -116,7 +116,6 @@ def main():
             if amount > 0:
                 add_expense(date, amount, category)
                 st.success("Expense added successfully!")
-                st.experimental_rerun()  # Refresh the app to update all sections
             else:
                 st.error("Amount should be greater than zero.")
 
@@ -142,16 +141,6 @@ def main():
             plot_expense_data(data, chart_type=chart_type)
         else:
             st.warning("No expenses to analyze yet!")
-
-    # LLM Query Section
-    st.header("Ask Questions About Your Expenses")
-    user_query = st.text_input("Enter your query related to expenses:")
-
-    if user_query:
-        vectorizer = TfidfVectorizer(stop_words='english')
-        retrieved_chunks = retrieve_relevant_chunks(data, user_query, vectorizer)
-        response = generate_response(retrieved_chunks, user_query, api_key)
-        st.write("Response:", response)
 
 if __name__ == "__main__":
     main()
