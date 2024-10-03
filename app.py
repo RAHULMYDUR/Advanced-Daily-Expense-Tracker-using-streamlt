@@ -10,12 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Handling file paths properly for Streamlit Cloud
 EXPENSE_FILE = "daily_expenses.csv"
 
-try:
-    api_key = st.secrets["gemini_api_key"]
-    logger.info("API key loaded successfully.")
-except KeyError:
-    st.error("API key is missing. Please add it to the secrets.toml file.")
-    api_key = None
+api_key = "AIzaSyCzdCOyd-7os-SRgbEolxtwEEgYYkjKpsM"
 
 # Initialize expense file if it doesn't exist
 def initialize_file():
