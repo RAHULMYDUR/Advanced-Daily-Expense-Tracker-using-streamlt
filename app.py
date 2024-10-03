@@ -172,7 +172,7 @@ def main():
     st.header("View Expense Analysis")
     chart_type = st.radio("Choose chart type:", ["Bar", "Line"])
     if st.button("View Analysis"):
-        if not data.empty():
+        if not data.empty:
             plot_expense_data(data, chart_type=chart_type)
         else:
             st.warning("No expenses to analyze yet!")
