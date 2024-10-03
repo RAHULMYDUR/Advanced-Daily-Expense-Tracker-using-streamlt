@@ -93,17 +93,12 @@ def main():
     # Load expense data
     data = load_data()
 
-    # Sidebar: Display the entire DataFrame and add a refresh button
+    # Sidebar: Display the entire DataFrame (No Refresh Button)
     st.sidebar.header("All Expenses")
     if not data.empty:
         st.sidebar.dataframe(data)
     else:
         st.sidebar.write("No expenses recorded.")
-
-    # Add a Refresh button in the sidebar (WITHOUT st.experimental_rerun())
-    if st.sidebar.button('🔄 Refresh App'):
-        # Clear session state to refresh manually
-        st.session_state.clear()
 
     # Layout: Two columns for Add Expense and Summary Insights
     col1, col2 = st.columns([1, 1])  # Make columns equally sized
@@ -121,7 +116,6 @@ def main():
             if amount > 0:
                 add_expense(date, amount, category)
                 st.success("Expense added successfully!")
-                # No rerun, the user can refresh manually if needed
             else:
                 st.error("Amount should be greater than zero.")
 
