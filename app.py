@@ -143,7 +143,7 @@ def main():
         with st.form("expense_form"):
             date = st.date_input("Select Date")
             amount = st.number_input("Amount (INR)", min_value=0.0, format="%.2f")
-            category = st.selectbox("Category", ["Grocery", "Snacks", "Outside Eatings", "Others"])
+            category = st.selectbox("Category", ["Grocery", "Snacks", "Outside Eatings", "Online Orders", "Others"])
             description = st.text_area("Description (Optional)")
             submitted = st.form_submit_button("Add Expense")
 
