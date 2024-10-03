@@ -142,5 +142,15 @@ def main():
         else:
             st.warning("No expenses to analyze yet!")
 
+     # LLM Query Section
+    st.header("Ask Questions About Your Expenses")
+    user_query = st.text_input("Enter your query related to expenses:")
+
+    if user_query:
+        vectorizer = TfidfVectorizer(stop_words='english')
+        retrieved_chunks = retrieve_relevant_chunks(data, user_query, vectorizer)
+        response = generate_response(retrieved_chunks, user_query, api_key)
+        st.write("Response:", response)
+
 if __name__ == "__main__":
     main()
