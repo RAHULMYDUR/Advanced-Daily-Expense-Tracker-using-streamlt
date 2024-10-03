@@ -181,14 +181,22 @@ def main():
 
     # LLM Query Section
     st.header("Ask Questions About Your Expenses")
-    user_query = st.text_input("Enter your query related to expenses:")
-
-    if user_query:
+    
+    # Add the input and send button inside a form
+    with st.form("query_form"):
+        user_query = st.text_input("Enter your query related to expenses:")
+        submitted_query = st.form_submit_button("Send")  # Add a "Send" button
+    
+    # Check if the query is submitted and process it
+    if submitted_query and user_query:
         vectorizer = TfidfVectorizer(stop_words='english')
         retrieved_chunks = retrieve_relevant_chunks(data, user_query, vectorizer)
+        
         with st.spinner('Generating response...'):
             response = generate_response(retrieved_chunks, user_query, api_key)
+        
         st.write("Response:", response)
+
 
 if __name__ == "__main__":
     main()
